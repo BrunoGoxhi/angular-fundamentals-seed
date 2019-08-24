@@ -12,6 +12,11 @@ import {Component } from '@angular/core'
       <div>
         {{ isHappy ? ':)' : ':(' }}
       </div>
+    <h1 [innerHTML] = "title"></h1>
+      <h1>{{ title }}</h1>
+      <img [src]="logo">
+      <input type="text" [value]="name"/>
+      <div>{{name}}</div>
     </div>
     `
 })
@@ -21,6 +26,8 @@ export class AppComponent {
   isHappy: boolean = true;
   numberOne: number = 1;
   numberTwo: number = 2;
+  logo: string = 'img/Change Copy.jpg';
+  name: string = "Bruno";
   constructor ()
   {
     this.title = 'Ultimate Angular'
