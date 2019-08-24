@@ -12,7 +12,7 @@ import { AppComponent} from './app.component';
     BrowserModule,
     CommonModule
   ],
-  bootstrap:  [AppComponent]
+  bootstrap: [AppComponent]
 })
 
 export class AppModule {}
