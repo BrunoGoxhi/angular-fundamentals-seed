@@ -4,7 +4,14 @@ interface Passenger {
   id: number,
   fullName: string,
   checkedIn: boolean,
-  checkInDate: null | number
+  checkInDate: number | null,
+  children: Child[] | null
+}
+
+interface Child 
+{
+  name: string,
+  age: number
 }
 
 @Component({
@@ -20,41 +27,15 @@ interface Passenger {
         [class.checked-in]="Passenger.checkedIn"
         ></span>
           {{ Passenger.fullName }}
+          <div class="date">
+            Checked in date: 
+            {{ Passenger.checkInDate ? ( Passenger.checkInDate | date: 'yMMMMd' | uppercase) : "Not checked in" }}
+          </div>
+          <div class="children">
+              Children: {{ Passenger.children?.length || 0}}
+          </div>
       </li>
     </ul>
-      <h1>Pasagjeret e linjes: </h1>
-      <ul>
-        <li *ngFor = "let Passenger of passengers;">
-          <span 
-          class="status"
-          [ngClass]="{
-            'checked-in': Passenger.checkedIn,
-            'checked-out': !Passenger.checkedIn
-          }"
-          ></span>
-            {{ Passenger.fullName }}
-        </li>
-      </ul>
-      <h1>Pasagjeret e linjes: </h1>
-      <ul>
-        <li *ngFor = "let Passenger of passengers;">
-          <span 
-          class="status"
-          [style.backgroundColor]="(Passenger.checkedIn ? '#22eb75' : '#c0392b')"
-          ></span>
-            {{ Passenger.fullName }}
-        </li>
-      </ul>
-      <h1>Pasagjeret e linjes: </h1>
-      <ul>
-        <li *ngFor = "let Passenger of passengers;">
-          <span 
-          class="status"
-          [ngStyle]="{ backgroundColor: (Passenger.checkedIn ? '#22eb75' : '#c0392b')}"
-          ></span>
-            {{ Passenger.fullName }}
-        </li>
-      </ul>
     </div>
     `
 })
@@ -65,13 +46,15 @@ export class AppComponent {
     id: 1,
     fullName: 'Bristol',
     checkedIn: true,
-    checkInDate: 1233221312
+    checkInDate: 1490742000000,
+    children: [{name: "baby", age: 1}]
   },
   {
     id: 2,
     fullName: 'Cash',
     checkedIn: false,
-    checkInDate: null
+    checkInDate: null,
+    children: null
   }
   ]
 }  
