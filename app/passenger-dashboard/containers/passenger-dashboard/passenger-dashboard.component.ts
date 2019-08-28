@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 import { Passenger } from '../../models/passenger.interface';
 
-
 @Component({
     selector: 'passenger-dashboard',
     styleUrls: ['passenger-dashboard.component.scss'],
     template: `
         <div>
+        <passenger-count></passenger-count>
+        <passenger-detail></passenger-detail>
             <h1>Pasagjeret e linjes: </h1>
             <ul>
             <li *ngFor = "let Passenger of passengers;">
@@ -32,6 +33,7 @@ import { Passenger } from '../../models/passenger.interface';
 export class PassengerDashboardComponent implements OnInit {
     passengers: Passenger[];
 
+    constructor(){}
     ngOnInit() 
     {
         console.log('OnInit');
