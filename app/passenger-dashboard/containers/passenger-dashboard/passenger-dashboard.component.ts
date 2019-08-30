@@ -11,7 +11,9 @@ import { Passenger } from '../../models/passenger.interface';
             [items] = "passengers"
             >
         </passenger-count>
-
+        <div  *ngFor="let Passenger of passengers;">
+            {{ Passenger.fullName}}
+        </div>
         <passenger-detail
             *ngFor="let Passenger of passengers;"
             [detail]="Passenger"
@@ -67,7 +69,6 @@ export class PassengerDashboardComponent implements OnInit {
                     passenger = Object.assign({}, passenger, event);
                 }
             return passenger;
-            })
-                console.log(this.passengers);
+            }) 
         }
 }
