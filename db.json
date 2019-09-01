@@ -1,16 +1,18 @@
 {
-    "passengers": [{
-        "id": 1,
-        "fullName": "Bristol",
-        "checkedIn": true,
-        "checkInDate": 1490742000000,
-        "children": [{"name": "baby", "age": 1}]
+  "passengers": [
+    {
+      "fullName": "Bruno. asss",
+      "id": 1,
+      "checkedIn": true,
+      "baggage": "none",
+      "checkInDate": 1490742000005
     },
     {
-        "id": 2,
-        "fullName": "Cash",
-        "checkedIn": false,
-        "checkInDate": null,
-        "children": null
-    }]
+      "fullName": "Toni Magelano",
+      "id": 2,
+      "checkedIn": true,
+      "baggage": "none",
+      "checkInDate": 1567345218324
+    }
+  ]
 }
