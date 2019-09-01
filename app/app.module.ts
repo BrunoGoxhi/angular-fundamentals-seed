@@ -22,9 +22,9 @@ const routes: Routes = [
   imports: [
      BrowserModule,
      PassengerDashboardModule,
-     RouterModule.forRoot(routes)
+     RouterModule.forRoot(routes, { useHash: true})
   ],
   bootstrap: [AppComponent]
-})
+}) 
 
 export class AppModule {}

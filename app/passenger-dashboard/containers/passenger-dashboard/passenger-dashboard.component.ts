@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { PassengerDashboardService} from '../../passenger-dashboard.service'
 
 import { Passenger } from '../../models/passenger.interface';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'passenger-dashboard',
@@ -21,6 +22,7 @@ import { Passenger } from '../../models/passenger.interface';
             [detail]="Passenger"
             (edit)="handleEdit($event)"
             (remove)="handleRemove($event)"
+            (view)="handleView($event)"
             >
         </passenger-detail>
         </div>
@@ -30,7 +32,9 @@ import { Passenger } from '../../models/passenger.interface';
 export class PassengerDashboardComponent implements OnInit {
     passengers: Passenger[];
 
-    constructor(private passengerService: PassengerDashboardService)
+    constructor(
+        private router: Router,
+        private passengerService: PassengerDashboardService)
     {
 
     }
@@ -43,6 +47,7 @@ export class PassengerDashboardComponent implements OnInit {
             .subscribe((data: Passenger[]) => this.passengers = data);
             
     }
+    
         handleRemove(event: Passenger){
             this.passengerService 
                 .removePassenger(event)
@@ -69,5 +74,10 @@ export class PassengerDashboardComponent implements OnInit {
                         return passenger;
                         }) 
                 })
+        }
+
+        handleView(event: Passenger)
+        {
+            this.router.navigate(['/passengers', event.id]);
         }
 }
